@@ -11,7 +11,7 @@ config: clean
 		--linux-flavours 686 \
 		--linux-packages "linux-image-2.6 aufs-modules-2.6.30-1" \
 		--packages-lists "standard-x11 video" \
-		--packages "qemu dash vde2 alsa-oss oss-compat libasound2-plugins insserv prelink usplash" \
+		--packages "qemu kvm kqemu-common dash vde2 alsa-oss oss-compat libasound2-plugins insserv prelink usplash" \
 		--apt-recommends disabled
 build: 
 	sudo lh_build 
