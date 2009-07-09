@@ -1,0 +1,12 @@
+自動的にqemu/kvmが起動するDebian Liveのレシピ。
+のがたじゅん <nogajun.at.gmail.com>
+
+1. Debian Liveがアクセスできるパーティション「home-rw」を作ってqemuイメージを置く。
+2. 作成したDebian Liveイメージの中のqemu/qemu.confの設定を変更する。
+   (最初から組み込みたい場合はconfig/binary_local-includes/qemu/qemu.confを変更)
+
+qemu.confの説明
+VM="qemu|kqemu|kvm"
+VMIMAGE="バーチャルマシンのディスクイメージの場所"
+VMOPTIONS="qemu/kvmのオプション(-full-screenオプションは自動的につきます)"
+

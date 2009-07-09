@@ -1,0 +1,17 @@
+#!/bin/sh
+
+MIRROR_DEBIAN="http://ftp.jp.debian.org/debian/"
+MIRROR_SECURITY="http://security.debian.org/"
+
+lh_config noautoconfig \
+	--binary-filesystem fat16 \
+	--categories "main" \
+	--iso-publisher "Jun NOGATA; http://www.nofuture.tv/;" \
+	--language ja \
+	--mirror-binary ${MIRROR_DEBIAN} \
+	--mirror-binary-security ${MIRROR_SECURITY} \
+	--mirror-bootstrap ${MIRROR_DEBIAN} \
+	--mirror-chroot ${MIRROR_DEBIAN} \
+	--mirror-chroot-security ${MIRROR_SECURITY} \
+	--syslinux-timeout 30 \
+	${@}
