@@ -5,10 +5,10 @@ set -e
 sed -i 's/^[3456]/#\ &/' /etc/inittab
 
 # enable parallel init script
-sed -i 's/^CONCURRENCY=none/CONCURRENCY=makefile/' /etc/init.d/rc
+sed -i 's/^CONCURRENCY=none/CONCURRENCY=startpar/' /etc/init.d/rc
 
 # remove daemon
-DAEMON="acct acpi-support avahi-daemon clamav-freshclam cron hdparm partimaged portmap iptables pppd-dns rc.local rsync rsyslog saned ssh system-tools-backends timidity vbesave kvm"
+DAEMON="qemu-kvm acct acpi-support avahi-daemon clamav-freshclam cron hdparm partimaged portmap iptables pppd-dns rc.local rsync rsyslog saned ssh system-tools-backends timidity vbesave kvm"
 for i in ${DAEMON}; do update-rc.d -f ${i} remove; done
 
 # set insserv

@@ -1,11 +1,14 @@
 #!/bin/sh
 
-MIRROR_DEBIAN="http://ftp.jp.debian.org/debian/"
-MIRROR_SECURITY="http://security.debian.org/"
+MIRROR_DEBIAN="http://cdn.debian.net/debian/"
+MIRROR_SECURITY="http://security.geo.debian.org/"
 
-lh_config noautoconfig \
-	--binary-filesystem fat16 \
-	--categories "main" \
+lh config noautoconfig \
+        --apt-recommends false \
+        --apt-secure false \
+	--binary-filesystem fat32 \
+	--archive-areas "main" \
+	--distribution squeeze \
 	--iso-publisher "Jun NOGATA; http://www.nofuture.tv/;" \
 	--language ja \
 	--mirror-binary ${MIRROR_DEBIAN} \
@@ -13,5 +16,7 @@ lh_config noautoconfig \
 	--mirror-bootstrap ${MIRROR_DEBIAN} \
 	--mirror-chroot ${MIRROR_DEBIAN} \
 	--mirror-chroot-security ${MIRROR_SECURITY} \
-	--syslinux-timeout 30 \
+	--syslinux-menu vesamenu \
+	--syslinux-timeout 10 \
+	--win32-loader false \
 	${@}

@@ -17,22 +17,22 @@ KQEMUCHECK=$(lsmod | grep kqemu)
 case ${VM} in
 	kvm)
 	  [ -n "${KQEMUCHECK}" ] && sudo sh -c "/sbin/rmmod kqemu"
-	  sudo sh -c "/etc/init.d/kvm start"
+	  sudo sh -c "/etc/init.d/qemu-kvm start"
 	  AOSS=""
 	  VM=/usr/bin/kvm
 	;;
 	kqemu)
-	  sudo sh -c "/etc/init.d/kvm stop"
+	  sudo sh -c "/etc/init.d/qemu-kvm stop"
 	  [ -z "${KQEMUCHECK}" ] && sudo sh -c "/sbin/modprobe kqemu"
 	  AOSS="/usr/bin/aoss"
 	  VMOPTIONS="${VMOPTIONS} -kernel-kqemu"
 	  VM=/usr/bin/qemu
 	;;
 	qemu)
-	  sudo sh -c "/etc/init.d/kvm stop"
+	  sudo sh -c "/etc/init.d/qemu-kvm stop"
 	  [ -n "${KQEMUCHECK}" ] && sudo sh -c "/sbin/rmmod kqemu"
 	  AOSS="/usr/bin/aoss"
-	  VMOPTIONS="${VMOPTIONS} -no-kqemu"
+	  VMOPTIONS="${VMOPTIONS}"
 	  VM=/usr/bin/qemu
 	;;
 	*)

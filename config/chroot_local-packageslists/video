@@ -10,6 +10,7 @@ xserver-xorg-input-joystick
 xserver-xorg-input-kbd
 xserver-xorg-input-mouse
 xserver-xorg-input-mutouch
+xserver-xorg-input-mutouch
 xserver-xorg-input-penmount
 xserver-xorg-input-tslib
 xserver-xorg-input-vmmouse
